@@ -23,7 +23,7 @@
 
 # If the ``*_PASSWORD`` variables are not set here you will be prompted to enter
 # values for them by ``stack.sh`` and they will be added to ``localrc``.
-ADMIN_PASSWORD=nomoresecrete
+ADMIN_PASSWORD=devstack
 MYSQL_PASSWORD=stackdb
 RABBIT_PASSWORD=stackqueue
 SERVICE_PASSWORD=$ADMIN_PASSWORD
@@ -60,15 +60,17 @@ LOGDAYS=2
 # ---------------------------------
 
 # Uncomment these to grab the milestone-proposed branches from the repos:
-CINDER_BRANCH=stable/havana
-GLANCE_BRANCH=stable/havana
-HORIZON_BRANCH=stable/havana
-KEYSTONE_BRANCH=stable/havana
-KEYSTONECLIENT_BRANCH=stable/havana
-NOVA_BRANCH=stable/havana
-NOVACLIENT_BRANCH=stable/havana
-NEUTRON_BRANCH=stable/havana
-SWIFT_BRANCH=stable/havana
+BRANCH=stable/havana
+
+CINDER_BRANCH=$BRANCH
+GLANCE_BRANCH=$BRANCH
+HORIZON_BRANCH=$BRANCH
+KEYSTONE_BRANCH=$BRANCH
+KEYSTONECLIENT_BRANCH=$BRANCH
+NOVA_BRANCH=$BRANCH
+NOVACLIENT_BRANCH=$BRANCH
+NEUTRON_BRANCH=$BRANCH
+SWIFT_BRANCH=$BRANCH
 
 
 # Swift
