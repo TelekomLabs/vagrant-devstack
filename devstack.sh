@@ -1,7 +1,11 @@
 #!/bin/sh
 
 # environment variables
-BRANCH=stable/havana
+OPENSTACK_BRANCH=stable/havana
+OPENSTACK_ADM_PASSWORD=devstack
+
+export OPENSTACK_BRANCH=$OPENSTACK_BRANCH
+export OPENSTACK_ADM_PASSWORD=$OPENSTACK_ADM_PASSWORD
 
 # update system
 export DEBIAN_FRONTEND noninteractive
@@ -14,7 +18,7 @@ DEVSTACK=$PWD/devstack
 echo Download devstack into $DEVSTACK
 
 # clone devstack
-su vagrant -c "cd && git clone -b $BRANCH https://github.com/openstack-dev/devstack.git $DEVSTACK"
+su vagrant -c "cd && git clone -b $OPENSTACK_BRANCH https://github.com/openstack-dev/devstack.git $DEVSTACK"
 
 # copy localrc settings (source: devstack/samples/localrc)
 cp /vagrant/config/localrc $DEVSTACK/localrc
