@@ -11,9 +11,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.hostname = "devstack"
 
-  # devstack needs more than 1024 MB memory, 2048
+  # devstack needs more than 1024 MB memory
   config.vm.provider "virtualbox" do |p|
-    p.customize ["modifyvm", :id, "--memory", "3000"]
+    p.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
   # forward open stack ui
