@@ -3,6 +3,7 @@
 # environment variables
 OPENSTACK_BRANCH=stable/havana
 OPENSTACK_ADM_PASSWORD=devstack
+USER=vagrant
 
 export OPENSTACK_BRANCH=$OPENSTACK_BRANCH
 export OPENSTACK_ADM_PASSWORD=$OPENSTACK_ADM_PASSWORD
@@ -13,16 +14,24 @@ sudo apt-get update || sudo yum update -y
 sudo apt-get install -qqy git || sudo yum install -y git
 
 # determine checkout folder
-PWD=$(su vagrant -c "cd && pwd")
+
+PWD=$(su $USER -c "cd && pwd")
 DEVSTACK=$PWD/devstack
-echo Download devstack into $DEVSTACK
 
-# clone devstack
-su vagrant -c "cd && git clone -b $OPENSTACK_BRANCH https://github.com/openstack-dev/devstack.git $DEVSTACK"
+# check if devstack is already there
+if [ ! -d "$DEVSTACK" ]
+then
+  echo Download devstack into $DEVSTACK
 
-# copy localrc settings (source: devstack/samples/localrc)
-cp /vagrant/config/localrc $DEVSTACK/localrc
-chown vagrant:vagrant $DEVSTACK/localrc
+  # clone devstack
+  su $USER -c "cd && git clone -b $OPENSTACK_BRANCH https://github.com/openstack-dev/devstack.git $DEVSTACK"
 
-# initialize devstack
-su vagrant -c "cd $DEVSTACK && ./stack.sh"
+  # copy localrc settings (source: devstack/samples/localrc)
+  cp /vagrant/config/localrc $DEVSTACK/localrc
+  chown $USER:$USER $DEVSTACK/localrc
+
+fi
+
+# start devstack
+echo Start Devstack
+su $USER -c "cd $DEVSTACK && ./stack.sh"
