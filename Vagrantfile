@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+DEVSTACK_IP = ENV["DEVSTACK_IP"] || "192.168.50.10"
+
 Vagrant.configure("2") do |config|
 
   # use official ubuntu 12.04 LTS image
@@ -9,13 +11,16 @@ Vagrant.configure("2") do |config|
 
   config.vm.hostname = "devstack"
 
-  # devstack needs more than 1024 MB memory
+  # devstack needs more than 1024 MB memory, 2048
   config.vm.provider "virtualbox" do |p|
-    p.customize ["modifyvm", :id, "--memory", "2048"]
+    p.customize ["modifyvm", :id, "--memory", "3000"]
   end
 
   # forward open stack ui
-  config.vm.network :forwarded_port, guest: 80, host: 8080
+  # config.vm.network :forwarded_port, guest: 80, host: 8080
+
+  # private network setup
+  config.vm.network :private_network, ip: DEVSTACK_IP
 
   # install devstack
   config.vm.provision :shell, :path => "devstack.sh"
