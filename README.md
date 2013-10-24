@@ -11,7 +11,7 @@ You need the following prerequisites:
 
 ## Installation
 
-Run `vagrant up` and get a cup of tee. After a couple of minutes the system is up and you are able to log into Open Stack via `http://10.0.2.15`. Use the following credentials:
+Run `vagrant up` and get a cup of tee. After a couple of minutes the system is up and you are able to log into Open Stack via `192.168.50.10`. Use the following credentials:
 
     user: 		admin
     password: 	devstack 
@@ -20,13 +20,7 @@ Run `vagrant up` and get a cup of tee. After a couple of minutes the system is u
 After a successful run you should see something like:
 
 ```bash
-Horizon is now available at http://10.0.2.15/
-Keystone is serving at http://10.0.2.15:5000/v2.0/
-Examples on using novaclient command line is in exercise.sh
-The default users are: admin and demo
-The password: 779fa04244a581504b0c
-This is your host ip: 10.0.2.15
-stack.sh completed in 848 seconds.
+stack.sh completed in 941 seconds.
 ```
 
 After you created a new machine, ensure you have created rules for access properly
