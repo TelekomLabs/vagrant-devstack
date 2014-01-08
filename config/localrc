@@ -24,7 +24,7 @@
 # If the ``*_PASSWORD`` variables are not set here you will be prompted to enter
 # values for them by ``stack.sh`` and they will be added to ``localrc``.
 ADMIN_PASSWORD=$OPENSTACK_ADM_PASSWORD
-MYSQL_PASSWORD=stackdb
+DATABASE_PASSWORD=stackdb
 RABBIT_PASSWORD=stackqueue
 SERVICE_PASSWORD=$ADMIN_PASSWORD
 SERVICE_TOKEN=$ADMIN_PASSWORD
