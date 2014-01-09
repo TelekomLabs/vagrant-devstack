@@ -11,6 +11,12 @@ Vagrant.configure("2") do |config|
 
   config.vm.hostname = "devstack"
 
+  # configuration for vmware fusion provider
+  config.vm.provider "vmware_fusion" do |v|
+    v.vmx["memsize"] = "2048"
+    v.vmx["numvcpus"] = "2"
+  end
+
   # devstack needs more than 1024 MB memory
   config.vm.provider "virtualbox" do |p|
     p.customize ["modifyvm", :id, "--memory", "2048"]
