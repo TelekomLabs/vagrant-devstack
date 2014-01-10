@@ -11,7 +11,7 @@ You need the following prerequisites:
 
 ## Installation
 
-Run `vagrant up` and get a cup of tee. After a couple of minutes the system is up and you are able to log into Open Stack via `192.168.50.10`. Use the following credentials:
+Run `vagrant up` (for VMware `vagrant up --provider vmware_fusion` ) and get a cup of tee. After a couple of minutes the system is up and you are able to log into Open Stack via `192.168.50.10`. Use the following credentials:
 
     user: 		admin
     password: 	devstack 
