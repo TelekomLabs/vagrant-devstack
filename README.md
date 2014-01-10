@@ -5,8 +5,8 @@ This projects installs [OpenStack Havana](http://www.openstack.org/software/hava
 ## Requirements
 
 You need the following prerequisites:
- * Virtualbox 4.2
- * Vagrant 1.3.5
+ * Virtualbox 4.2 or VMware Fusion >5.04
+ * Vagrant 1.3.5 (with VMware provider)
  * at least 2GB free memory
 
 ## Installation
