@@ -28,6 +28,9 @@ Vagrant.configure("2") do |config|
   # private network setup
   config.vm.network :private_network, ip: DEVSTACK_IP
 
+  # resolve "stdin: is not a tty warning", related issue and proposed fix: https://github.com/mitchellh/vagrant/issues/1673
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+
   # install devstack
   config.vm.provision :shell, :path => "devstack.sh"
 
