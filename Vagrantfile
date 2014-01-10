@@ -12,7 +12,9 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "devstack"
 
   # configuration for vmware fusion provider
-  config.vm.provider "vmware_fusion" do |v|
+  config.vm.provider "vmware_fusion" do |v, override|
+    override.vm.box = "precise_fusion"
+    override.vm.box_url="http://files.vagrantup.com/precise64_vmware_fusion.box"
     v.vmx["memsize"] = "2048"
     v.vmx["numvcpus"] = "2"
   end
