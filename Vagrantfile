@@ -12,7 +12,9 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "devstack"
 
   # configuration for vmware fusion provider
-  config.vm.provider "vmware_fusion" do |v|
+  config.vm.provider "vmware_fusion" do |v, override|
+    override.vm.box = "precise_fusion"
+    override.vm.box_url="http://files.vagrantup.com/precise64_vmware_fusion.box"
     v.vmx["memsize"] = "2048"
     v.vmx["numvcpus"] = "2"
   end
@@ -27,6 +29,9 @@ Vagrant.configure("2") do |config|
 
   # private network setup
   config.vm.network :private_network, ip: DEVSTACK_IP
+
+  # resolve "stdin: is not a tty warning", related issue and proposed fix: https://github.com/mitchellh/vagrant/issues/1673
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 
   # install devstack
   config.vm.provision :shell, :path => "devstack.sh"
