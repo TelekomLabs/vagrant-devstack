@@ -40,4 +40,4 @@ fi
 
 # start devstack
 echo "Start Devstack"
-#su $OS_USER -c "cd $DEVSTACK && ./stack.sh"
+su $OS_USER -c "cd $DEVSTACK && ./stack.sh"
