@@ -1,15 +1,17 @@
-# vagrant devstack
+# OpenStack in a Box
 
-This projects installs [OpenStack Havana](http://www.openstack.org/software/havana/) via [Devstack](http://devstack.org/) on an official Ubuntu 12.04 LTS image. 
+This projects installs [OpenStack Havana](http://www.openstack.org/software/havana/) via [Devstack](http://devstack.org/) on an official Ubuntu 12.04 LTS image. The scripts are intended for vagrant and cloud-init enabled infrastructures. 
 
-## Requirements
+## Installation on local virtal machines
 
-You need the following prerequisites:
+### Requirements
+
+You need the following prerequisites for local deployment:
  * Virtualbox 4.2 or VMware Fusion >5.04
  * Vagrant 1.3.5 (with VMware provider)
  * at least 2GB free memory
 
-## Installation
+### Usage
 
 Run `vagrant up` (for VMware `vagrant up --provider vmware_fusion` ) and get a cup of tee. After a couple of minutes the system is up and you are able to log into Open Stack via `192.168.50.10`. Use the following credentials:
 
@@ -31,7 +33,7 @@ nova secgroup-add-rule default tcp 22 22 0.0.0.0/0
 nova secgroup-add-rule default icmp -1 -1 0.0.0.0/0
 ```
 
-## Recommendations
+### Recommendations
 
 You should size up the memory of the vm if possible. Edit the `Vagrantfile`
 

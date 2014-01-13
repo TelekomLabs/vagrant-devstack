@@ -34,6 +34,6 @@ Vagrant.configure("2") do |config|
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 
   # install devstack
-  config.vm.provision :shell, :path => "devstack.sh"
+  config.vm.provision :shell, :path => "vagrant.sh"
 
 end
