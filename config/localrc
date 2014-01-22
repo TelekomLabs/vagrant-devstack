@@ -38,7 +38,7 @@ SERVICE_TOKEN=$ADMIN_PASSWORD
 # ``HOST_IP`` is not set by default.
 #HOST_IP=w.x.y.z
 
-HOST_IP=192.168.50.10
+HOST_IP=$OS_HOST_IP
 #SERVICE_HOST=\$HOST_IP
 NETWORK_GATEWAY=192.168.50.1
 FLOATING_RANGE=192.168.50.64/26
@@ -57,7 +57,7 @@ LOGFILE=$DEST/logs/stack.sh.log
 
 # Old log files are automatically removed after 7 days to keep things neat.  Change
 # the number of days by setting ``LOGDAYS``.
-LOGDAYS=2
+LOGDAYS=1
 
 # Nova logs will be colorized if ``SYSLOG`` is not set; turn this off by setting
 # ``LOG_COLOR`` false.
